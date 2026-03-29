@@ -1,18 +1,18 @@
 # BinDis
-A terminal renderer for previewing memory buffer with target on monochromatic displays like SSD1306 so you don't waste compiling SDK's and long flash times of your MCU/MPU 's and depreciate your electronic components.
+A terminal renderer for previewing memory buffer with target on monochromatic displays like SSD1306 so you don't waste compiling SDK's and long flash times of your MCU/MPU 's and wear of your electronic components.
 <p align="center">
   <img src="img/name.png" alt="name" />
 </p>
 
 ## Use it
-### Requeriments
+### Requirements
 
-- Bit level mineset (use of 0xDEADBEEF at least once)
+- Bit level mindset (use of 0xDEADBEEF at least once)
 - UTF-8 & ANSI terminal (nothing to check while not using legacy UNIX)
 - POSIX compatible system (same parenthesis but now excluding Windows)
 - Recommended to run client and main in a single user (same as above unless you're a linux maniac AKA. gentoo user)
 
-### Instalation
+### Installation
 The **main program** can be compiled with a simple 
 ``` bash
 make
@@ -20,16 +20,16 @@ make
 
 The **client** directory is at (naturally) `client/`, the file where you would want to write your code is `client/client.c` and the API is in `client/bindisClient.h`.
 
-I recomend using `make dev` in `client/` when testing (that i hope is always). It:
+I recomend using `make dev` in `client/` when testing (that I hope is always). It does:
 1. Clean (if an error happens and end clean is not reached)
 2. Compile    AKA. `make`
 3. Run        AKA. `make run`
 4. Clean      AKA. `make clean`
 
-### Recomendations
-- Undestand hexdecimal representation of binary values so you can make your values less verbose (**0xFF** *[4 digits]*  =  **0b11111111** *[10 digits]*)
-- Use python shell to try value conversion between binary and hexadecimal
-- Bindis can be more comfortabe in a good tiling window manager, make one that match your thinking model.
+### Recommendations
+- Understand hexdecimal representation of binary values so you can make your values less verbose (**0xFF** *[4 digits]*  =  **0b11111111** *[10 digits]*)
+- Use python shell to try value conversion between binary and hexdecimal
+- Bindis can be more comfortable in a good tiling window manager, make one that match your thinking model.
 
 ## API
 The API in `client/bindisClient.h` handles safety the POSIX shared memory (while you don't move it) and gives you a pointer to the shared buffer. Your shared buffer, the memory space that in real life would read your display, is an array of **uint8_t** which size of bytes (AKA. number of elements of buffer) can be read in `bd->size`.
@@ -41,7 +41,7 @@ The `bd` struct is a data structure to help API initialization. It can be read/w
 ``` c
 struct bd {
 	uint8_t * buffer;    //the buffer you would want to write
-	uint8_t * keys;      //you are not intended to read or write manually but posible
+	uint8_t * keys;      //you are not intended to read or write manually but possible
 	uint32_t  width;
 	uint32_t  height;
 	uint8_t   pages;
@@ -96,7 +96,7 @@ int main(int argc, char * argv[]){
 
 ## To do
 - [x] Make the start process for users
-- [x] Look if it can be work as a binary in PATH (it might but could be very opaque)
+- [x] Check if it can work as a binary in PATH (it might but could be very opaque)
 - [x] Add general purpose keys
 - [x] Add general purpose keys API
 - [x] Make something to differenciate the keys management in the shared memory or make another memory block
