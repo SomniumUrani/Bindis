@@ -102,6 +102,8 @@ int main(int argc, char * argv[]){
 - [x] Make something to differenciate the keys management in the shared memory or make another memory block
 - [x] Add the vertical adressing mode
 - [x] Finish the preceding points so I can make the project that needed this tool
+- [ ] A graphic app
+- [ ] A script for single curl use
 
 ## Note
 This projects was not made with abstraction libraries in mind but for devs working bit level on applications on systems like the project adjacent to this one, libraries or anything this can be useful for.
