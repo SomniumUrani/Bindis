@@ -62,7 +62,7 @@ int main(int agrc, char * argv[]){
 			keysfd, 0
 			);
 
-	//thread shit
+	//thread stuff
 	keyManagerArgs keyManagerArgs = {
 		keysMemory,
 		&config.binds,
