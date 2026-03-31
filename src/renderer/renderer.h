@@ -32,12 +32,12 @@
 #define UNIC_BLOCKFULL 		"\u2588"
 
 
-int8_t updateTerminal(
+int updateTerminal(
 			uint8_t * buffer,
 			struct config config,
 			uint32_t bufferBytes,
 			struct winsize * wnsize);
-int8_t initTerminal(
+int initTerminal(
 		struct termios * newt,
 		struct termios * oldt
 		);

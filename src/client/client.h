@@ -15,9 +15,9 @@
 struct bd {
 	uint8_t * buffer;
 	uint8_t * keys;
-	uint32_t  width;
-	uint32_t  height;
-	uint8_t   pages;
+	int	      width;
+	int       height;
+	int       pages;
 	size_t    size;
 };
 

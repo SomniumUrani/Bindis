@@ -46,11 +46,5 @@ keys:
 
 }
 
-static inline int8_t finish(){
-	shm_unlink(SHM_MAIN);
-	shm_unlink(SHM_KEYS);
-	
-	return 0;
-}
 
 

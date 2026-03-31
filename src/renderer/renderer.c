@@ -1,5 +1,4 @@
 #include <limits.h>
-#include <stdint.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
@@ -9,7 +8,7 @@
 #include "renderer.h"
 
 
-int8_t updateTerminal(
+int updateTerminal(
 			uint8_t * buffer,
 			struct config config,
 			uint32_t bufferBytes,
@@ -33,7 +32,7 @@ int8_t updateTerminal(
 	int top, bott;
 	
 
-	for (uint32_t i = 0; i < bufferBytes; i++){
+	for (int i = 0; i < bufferBytes; i++){
 		tmp = buffer[i];
 
 		for (uint8_t a = 0; a < BYTE_SIZE / 2; a++){
@@ -76,7 +75,7 @@ int8_t updateTerminal(
 	return 0;
 }
 
-int8_t initTerminal(
+int initTerminal(
 		struct termios * newt,
 		struct termios * oldt
 		){

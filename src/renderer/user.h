@@ -18,9 +18,9 @@ struct binds {
 };
 
 struct config {
-	uint32_t width;
-	uint32_t height;
-	uint8_t  adrsmode;	
+	int width;
+	int height;
+	int  adrsmode;	
 	struct timespec Updateinterval;
 	struct timespec InputInterval;
 	struct binds binds;
@@ -36,4 +36,4 @@ typedef struct {
 #define FCONFIG "config"
 
 void * keysManager(void * arguments);
-int8_t configure(struct config * config);
+int configure(struct config * config);

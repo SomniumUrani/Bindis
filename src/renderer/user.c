@@ -7,7 +7,7 @@
 #include "user.h"
 #include "renderer.h"
 
-int8_t configure(struct config * config){
+int configure(struct config * config){
 	//default configurations
 	config->width                  = 0;
 	config->height                 = 0;
