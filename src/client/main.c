@@ -1,4 +1,4 @@
-#include "bindisClient.h"
+#include "client.h"
 
 int main(int argc, char * argv[]){
 	//bindis initialization process, please set the same resolution values

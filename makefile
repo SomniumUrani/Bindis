@@ -1,26 +1,34 @@
 .SILENT:
 CC = gcc
-FLAGS = -g -O0
-TARGET = bin/binDis
+FLAGS = -g 
+
+BINDIR = ./bin
+
+TARGET_RENDERER = $(BINDIR)/bindis
+TARGET_CLIENT = $(BINDIR)/client
+
+SOURCES_RENDERER = $(wildcard src/renderer/*.c)
+SOURCES_CLIENT = $(wildcard src/client/*.c)
+
+OBJS_RENDERER = $(SOURCES_RENDERER:.c=.o)
+OBJS_CLIENT = $(SOURCES_CLIENT:.c=.o)
 
 
-SOURCES = $(wildcard src/*.c)
-OBJS = $(SOURCES:.c=.o)
+all : setup $(TARGET_RENDERER) $(TARGET_CLIENT)
 
-
-all :
-
+setup:
 	mkdir -p bin
-	$(CC) -o $(TARGET) $(SOURCES) $(FLAGS)
+
+
+$(TARGET_RENDERER): $(SOURCES_RENDERER)
+	$(CC) -o $@ $^
+
+$(TARGET_CLIENT): $(SOURCES_CLIENT)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 
 clean : 
-	rm -rf bin/
-
-run : 
-	./$(TARGET)
-
-dev : 
-	$(MAKE) clean
-	$(MAKE) all
-	$(MAKE) run 
-	$(MAKE) clean
+	rm -rf bin/*

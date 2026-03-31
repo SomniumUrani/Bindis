@@ -1,5 +1,3 @@
-#pragma once
-
 #include <limits.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -8,10 +6,10 @@
 #include <termios.h>
 #include <fcntl.h>
 
-#include "defs.h"
+#include "renderer.h"
 
 
-static inline int8_t updateTerminal(
+int8_t updateTerminal(
 			uint8_t * buffer,
 			struct config config,
 			uint32_t bufferBytes,
@@ -78,7 +76,7 @@ static inline int8_t updateTerminal(
 	return 0;
 }
 
-static inline int8_t initTerminal(
+int8_t initTerminal(
 		struct termios * newt,
 		struct termios * oldt
 		){
@@ -104,7 +102,7 @@ static inline int8_t initTerminal(
 	return 0;
 }
 
-static inline void finishTerminal(
+void finishTerminal(
 			struct termios * oldt
 			){
 

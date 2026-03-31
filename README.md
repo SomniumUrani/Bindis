@@ -13,18 +13,16 @@ A terminal renderer for previewing memory buffer with target on monochromatic di
 - Recommended to run client and main in a single user (same as above unless you're a linux maniac AKA. gentoo user)
 
 ### Installation
-The **main program** can be compiled with a simple 
+Compile renerer and client with a 
 ``` bash
 make
 ```
+in the root of the repository.
 
-The **client** directory is at (naturally) `client/`, the file where you would want to write your code is `client/client.c` and the API is in `client/bindisClient.h`.
+The **client** directory is at `src/client/`, 
+the file where you would want to write your code is `src/client/client.c` 
+and the API is at `src/client/client.h`.
 
-I recomend using `make dev` in `client/` when testing (that I hope is always). It does:
-1. Clean (if an error happens and end clean is not reached)
-2. Compile    AKA. `make`
-3. Run        AKA. `make run`
-4. Clean      AKA. `make clean`
 
 ### Recommendations
 - Understand hexdecimal representation of binary values so you can make your values less verbose (**0xFF** *[4 digits]*  =  **0b11111111** *[10 digits]*)
@@ -32,7 +30,7 @@ I recomend using `make dev` in `client/` when testing (that I hope is always). I
 - Bindis can be more comfortable in a good tiling window manager, make one that match your thinking model.
 
 ## API
-The API in `client/bindisClient.h` handles safety the POSIX shared memory (while you don't move it) and gives you a pointer to the shared buffer. Your shared buffer, the memory space that in real life would read your display, is an array of **uint8_t** which size of bytes (AKA. number of elements of buffer) can be read in `bd->size`.
+The API in `src/client/client.h` handles safety the POSIX shared memory (while you don't move it) and gives you a pointer to the shared buffer. Your shared buffer, the memory space that in real life would read your display, is an array of **uint8_t** which size of bytes (AKA. number of elements of buffer) can be read in `bd->size`.
 
 There is no need for free's, I used static memory and the dynamic shared memory is handled entirely by the kernel.
 

@@ -5,14 +5,16 @@
 #include <unistd.h>
 #include <limits.h>
 #include <termios.h>
+#include <sys/ioctl.h>
 #include <pthread.h>
 
 
-#include "headers/defs.h"
-#include "headers/dataTrans.h"
-#include "headers/renderer.h"
-#include "headers/mini.h"
-#include "headers/config.h"
+#include "shared-memmory.h"
+#include "renderer.h"
+
+#include "user.h"
+//#include "mini.h"
+//#include "config.h"
 
 int main(int agrc, char * argv[]){
 	int isError = 0;

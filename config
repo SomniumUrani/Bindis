@@ -16,12 +16,13 @@
 # updateInterval = 1
 # adressingMode = 0
 # 
-# -Advanced-
+# ---Advanced---
 # To avoid non captured key press, the input reading interval is 
 # separed from the update one.
 # Default is 1/60*1000 ms (simulating input on a 60fps game)
 #
 # inputInterval = 16
+# --------------
 #
 # GPKEYs
 # Special keys not supported (yet)

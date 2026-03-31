@@ -1,39 +1,10 @@
 #pragma once
 
 #include <stdint.h>
-#include <time.h>
+#include <termios.h>
+#include <sys/ioctl.h>
 
-#include "../shared.h"
-
-struct binds {
-	char keyQ;
-	char keyA;
-	char keyB;
-	char keyC;
-	char keyD;
-	char keyE;
-	char keyF;
-	char keyG;
-};
-
-struct config {
-	uint32_t width;
-	uint32_t height;
-	uint8_t  adrsmode;	
-	struct timespec Updateinterval;
-	struct timespec InputInterval;
-	struct binds binds;
-};
-
-typedef struct {
-	uint8_t * keys;
-	struct binds * binds;
-	struct timespec * inputInterval;
-} keyManagerArgs;
-
-
-#define FCONFIG "config"
-
+#include "user.h"
 
 //I gotta check if there are more adressing modes, for now this is for SSD1306
 
@@ -60,3 +31,16 @@ typedef struct {
 #define UNIC_BLOCKLOW 		"\u2584"
 #define UNIC_BLOCKFULL 		"\u2588"
 
+
+int8_t updateTerminal(
+			uint8_t * buffer,
+			struct config config,
+			uint32_t bufferBytes,
+			struct winsize * wnsize);
+int8_t initTerminal(
+		struct termios * newt,
+		struct termios * oldt
+		);
+void finishTerminal(
+			struct termios * oldt
+			);
