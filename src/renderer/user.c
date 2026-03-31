@@ -5,7 +5,6 @@
 #include <unistd.h>
 
 #include "user.h"
-#include "renderer.h"
 
 int configure(struct config * config){
 	//default configurations
@@ -15,7 +14,7 @@ int configure(struct config * config){
 	config->Updateinterval.tv_sec  = 0;
 	config->InputInterval.tv_nsec  = (1/60 * 1000) * MStoNS;
 	config->InputInterval.tv_sec   = 0;
-	config->adrsmode               = ADR_H;
+	config->adrsmode               = 0 /*ADR_H*/;
 
 	config->binds.keyQ = 'q';
 	config->binds.keyA = 'z';
