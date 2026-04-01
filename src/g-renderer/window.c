@@ -28,4 +28,5 @@ void localConfig(struct gkeys * keys, struct guiconfig * guiconfig){
 	keys->key_g = KEY_G;
 
 	guiconfig->scale = 3;
+	guiconfig->vdisColor = WHITE;
 }

@@ -15,6 +15,7 @@ int main(void){
 	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	InitWindow(200, 200, "BINDIS GRAPHICAL");
 	SetTargetFPS(60);
+	GuiSetStyle(DEFAULT, TEXT_SIZE, 20);
 
 
 	struct config config;
@@ -56,12 +57,12 @@ int main(void){
 		BeginTextureMode(virtualDisplay);
 		ClearBackground(BLACK);
 
-		updateRenderer(size, buffer, config);
+		updateRenderer(size, buffer, config, guiconfig);
 
 		EndTextureMode();
 		//----------------
 		BeginDrawing();
-		ClearBackground(WHITE);
+		ClearBackground(GRAY);
 		Rectangle origin = { 
 	            0.0f, 
 	            0.0f, 
