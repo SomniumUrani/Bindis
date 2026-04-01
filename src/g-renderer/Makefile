@@ -1,17 +1,28 @@
 .SILENT:
-CC = gcc
-CFLAGS = -g -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
-BINDIR = ./bin
-TARGET = $(BINDIR)/g-renderer
-SOURCES = $(wildcard ./*.c) ../renderer/user.c
+CC     = gcc
+CFLAGS = -g -Wall -I../../src
+LIBS   = -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+
+BINDIR = ../../bin
+OBJDIR = $(BINDIR)/obj/g-renderer
+LIBDIR = $(BINDIR)/lib
+
+TARGET     = $(BINDIR)/g-renderer
+LIB_COMMON = $(LIBDIR)/libcommon.a
+
+LOCAL_SRCS = $(wildcard *.c)
+OBJS       = $(patsubst %.c, $(OBJDIR)/%.o, $(LOCAL_SRCS))
 
 all: setup $(TARGET)
 
 setup:
-	mkdir -p $(BINDIR)
+	mkdir -p $(OBJDIR)
 
-$(TARGET): $(SOURCES)
-	$(CC) -o $@ $^ $(CFLAGS)
+$(TARGET): $(OBJS) $(LIB_COMMON)
+	$(CC) -o $@ $^ $(LIBS)
+
+$(OBJDIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BINDIR)
+	rm -f $(OBJS) $(TARGET)

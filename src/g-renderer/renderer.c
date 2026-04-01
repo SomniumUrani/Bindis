@@ -1,7 +1,7 @@
 #include <raylib.h>
 #include <stdint.h>
 
-#include "../renderer/user.h"
+#include "../common/user.h"
 
 #include "renderer.h"
 

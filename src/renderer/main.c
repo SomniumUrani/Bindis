@@ -11,7 +11,7 @@
 #include "shared-memmory.h"
 #include "renderer.h"
 
-#include "user.h"
+#include "../common/user.h"
 //#include "mini.h"
 //#include "config.h"
 

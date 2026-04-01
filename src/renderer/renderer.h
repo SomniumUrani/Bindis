@@ -4,7 +4,7 @@
 #include <termios.h>
 #include <sys/ioctl.h>
 
-#include "user.h"
+#include "../common/user.h"
 
 //I gotta check if there are more adressing modes, for now this is for SSD1306
 

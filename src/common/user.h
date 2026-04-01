@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <time.h>
 
-#include "../shared.h"
+#include "shared.h"
 
 
 

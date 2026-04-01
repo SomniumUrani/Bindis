@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <limits.h>
 
-#include "../shared.h"
+#include "../common/shared.h"
 
 #define mkeyPressed(k) (*bd.keys & k)
 
