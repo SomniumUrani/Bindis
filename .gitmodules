@@ -1,0 +1,3 @@
+[submodule "src/g-renderer/raygui"]
+	path = src/g-renderer/raygui
+	url = https://github.com/raysan5/raygui
