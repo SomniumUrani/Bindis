@@ -1,6 +1,5 @@
 #include <raylib.h>
 #include <unistd.h>
-#include <string.h>
 
 #define RAYGUI_IMPLEMENTATION
 #include "raygui/src/raygui.h"
@@ -52,22 +51,12 @@ int main(void){
 			keysfd, 0
 			);
 
-//	debug
-//	memcpy(buffer, (uint8_t[]){0xFF, 0x89, 0x89, 0x89, 0x76, 0x00, 0x00, 0xF9, 0x00, 0x00, 0xFE, 0x04, 0x0C, 0x08, 0x18, 0xF0, 0x00, 0x00, 0xFF, 0x81, 0x81, 0x42, 0x3C, 0x00, 0x00, 0xF9, 0x00, 0x00, 0x86, 0x89, 0x89, 0x71}, 32);
-
-
 	while(!WindowShouldClose()) {
 		gkeymanager(realkeys, keysMemory);
 		BeginTextureMode(virtualDisplay);
 		ClearBackground(BLACK);
 
 		updateRenderer(size, buffer, config);
-
-		DrawPixel(20, 20, WHITE);
-		DrawCircle(20, 20, 5, RED);
-
-
-
 
 		EndTextureMode();
 		//----------------
@@ -88,7 +77,7 @@ int main(void){
 		DrawTexturePro(virtualDisplay.texture, origin, target, (Vector2){ 0, 0 }, 0.0f, WHITE);
 
 
-		drawGUI(&guiconfig);
+		drawGUI(&guiconfig, &config);
 	
 		EndDrawing();
 	}
