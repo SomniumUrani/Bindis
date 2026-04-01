@@ -23,6 +23,16 @@ The **client** directory is at `src/client/`,
 the file where you would want to write your code is `src/client/client.c` 
 and the API is at `src/client/client.h`.
 
+### NEW: GUI APP
+This project was made targeting simplicity, that is why GUI is kept optional in the setup workflow. To
+compile the GUI program do
+``` bash
+make graphical
+```
+and you can execute it like 
+``` bash
+./bin/g-renderer
+```
 
 ### Recommendations
 - Understand hexdecimal representation of binary values so you can make your values less verbose (**0xFF** *[4 digits]*  =  **0b11111111** *[10 digits]*)
@@ -100,7 +110,7 @@ int main(int argc, char * argv[]){
 - [x] Make something to differenciate the keys management in the shared memory or make another memory block
 - [x] Add the vertical adressing mode
 - [x] Finish the preceding points so I can make the project that needed this tool
-- [ ] A graphic app
+- [x] A graphic app
 - [ ] A script for single curl use
 
 ## Note
