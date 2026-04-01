@@ -1,4 +1,5 @@
 #include "client.h"
+#include "string.h"
 
 int main(int argc, char * argv[]){
 	//bindis initialization process, please set the same resolution values
@@ -11,6 +12,7 @@ int main(int argc, char * argv[]){
 	
 
 	bd.buffer[0] = 0xff;
+	BINDIS_LOGO
 
 
 	return 0;
