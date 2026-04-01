@@ -17,4 +17,11 @@ void gkeymanager(struct gkeys keys, uint8_t * shkeys){
 
 void localConfig(struct gkeys * keys){
 	keys->key_q = KEY_Q;
+	keys->key_a = KEY_A;
+	keys->key_b = KEY_B;
+	keys->key_c = KEY_C;
+	keys->key_d = KEY_D;
+	keys->key_e = KEY_E;
+	keys->key_f = KEY_F;
+	keys->key_g = KEY_G;
 }
