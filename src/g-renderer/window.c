@@ -3,6 +3,8 @@
 #include "window.h"
 #include "../renderer/user.h"
 
+#include "gui.h"
+
 void gkeymanager(struct gkeys keys, uint8_t * shkeys){
 	*shkeys = 0;
 	if (IsKeyDown(keys.key_q)) *shkeys |= BD_KEY_Q;
@@ -15,7 +17,7 @@ void gkeymanager(struct gkeys keys, uint8_t * shkeys){
 	if (IsKeyDown(keys.key_g)) *shkeys |= BD_KEY_G;
 }
 
-void localConfig(struct gkeys * keys){
+void localConfig(struct gkeys * keys, struct guiconfig * guiconfig){
 	keys->key_q = KEY_Q;
 	keys->key_a = KEY_A;
 	keys->key_b = KEY_B;
@@ -24,4 +26,6 @@ void localConfig(struct gkeys * keys){
 	keys->key_e = KEY_E;
 	keys->key_f = KEY_F;
 	keys->key_g = KEY_G;
+
+	guiconfig->scale = 3;
 }

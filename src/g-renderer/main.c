@@ -2,10 +2,14 @@
 #include <unistd.h>
 #include <string.h>
 
+#define RAYGUI_IMPLEMENTATION
+#include "raygui/src/raygui.h"
+
 #include "../renderer/user.h"
 #include "../renderer/shared-memmory.h"
 #include "window.h"
 #include "renderer.h"
+#include "gui.h"
 
 
 int main(void){
@@ -15,13 +19,13 @@ int main(void){
 
 
 	struct config config;
+	struct guiconfig guiconfig;
 	RenderTexture2D virtualDisplay;
-	float scale = 3.0f;
 	struct gkeys realkeys;
 
 	configure(&config);
 	virtualDisplay = LoadRenderTexture(config.width, config.height);
-	localConfig(&realkeys);
+	localConfig(&realkeys, &guiconfig);
 	off_t size = config.width * config.height / 8 /*byte size*/;
 
 
@@ -69,7 +73,6 @@ int main(void){
 		//----------------
 		BeginDrawing();
 		ClearBackground(WHITE);
-
 		Rectangle origin = { 
 	            0.0f, 
 	            0.0f, 
@@ -77,12 +80,15 @@ int main(void){
 	            (float)-virtualDisplay.texture.height 
 	        };
 		Rectangle target = { 
-	            (GetScreenWidth()  - config.width * scale) / 2.0f, 
-	            (GetScreenHeight() - config.height * scale) / 2.0f, 
-	            (float)config.width  * scale, 
-	            (float)config.height * scale 
+	            (GetScreenWidth()  - config.width * guiconfig.scale) / 2.0f, 
+	            (GetScreenHeight() - config.height * guiconfig.scale) / 2.0f, 
+	            (float)config.width  * guiconfig.scale, 
+	            (float)config.height * guiconfig.scale 
 	        };
 		DrawTexturePro(virtualDisplay.texture, origin, target, (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+
+		drawGUI(&guiconfig);
 	
 		EndDrawing();
 	}

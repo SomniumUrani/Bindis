@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include "gui.h"
 
 struct gkeys{
 	int key_q;
@@ -13,6 +14,6 @@ struct gkeys{
 };
 
 void gkeymanager(struct gkeys keys, uint8_t * shkeys);
-void localConfig(struct gkeys * keys);
+void localConfig(struct gkeys * keys, struct guiconfig * guiconfig);
 void update(void);
 void setup(void);
