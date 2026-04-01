@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "window.h"
 #include "../renderer/user.h"
-#include "deambiguation.h"
 
 void gkeymanager(struct gkeys keys, uint8_t * shkeys){
 	*shkeys = 0;
@@ -17,5 +16,5 @@ void gkeymanager(struct gkeys keys, uint8_t * shkeys){
 }
 
 void localConfig(struct gkeys * keys){
-	keys->key_q = KEY_X;
+	keys->key_q = KEY_Q;
 }

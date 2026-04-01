@@ -76,7 +76,7 @@ int main(int agrc, char * argv[]){
 	uint8_t xdtest[] = {0xC2, 0xff, 0b11111101};
 
 
-	while (!(*keysMemory & KEY_Q)){
+	while (!(*keysMemory & BD_KEY_Q)){
 		isError = updateTerminal(
 				buffer,
 				config,
