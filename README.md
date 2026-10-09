@@ -15,7 +15,7 @@ A terminal renderer for previewing memory buffer with target on monochromatic di
 ### Installation
 Compile renerer and client with a 
 ``` bash
-make
+cmake -S . -B build && cmake --build build
 ```
 in the root of the repository.
 
@@ -23,15 +23,17 @@ The **client** directory is at `src/client/`,
 the file where you would want to write your code is `src/client/client.c` 
 and the API is at `src/client/client.h`.
 
-## NEW: GUI APP
+All binaries are at `./build/bin/` by default.
+
+## GUI APP
 This project was made targeting simplicity, that is why GUI is kept optional in the setup workflow. To
 compile the GUI program do
 ``` bash
-make graphical
+cmake --build build --target bindis-gui
 ```
 and you can execute it like 
 ``` bash
-./bin/g-renderer
+./build/bin/bindis-gui
 ```
 
 ### Recommendations
